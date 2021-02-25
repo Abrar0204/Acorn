@@ -14,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => res.send("Welcome To Acorn"));
 app.use("/api/questions", questionRoutes);
 
 app.listen(process.env.PORT || 5000, () => console.log("Server started"));
