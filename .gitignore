@@ -3,3 +3,4 @@ backend/serviceKey
 node_modules
 
 frontend
+backend/data
