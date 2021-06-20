@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
 		const chaptersRef = db.collection("chapters");
 		const chapters = await chaptersRef.get();
 		const chapterDocs = [];
-		chapters.forEach((chapter) => chapterDocs.push(chapter));
+		chapters.forEach(chapter => chapterDocs.push(chapter));
 		const chaptersData = [];
 
 		let temp;
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
 
 			let questionsDocs = await questionsRef.get();
 
-			questionsDocs.forEach((question) => {
+			questionsDocs.forEach(question => {
 				questions.push(question.data());
 			});
 

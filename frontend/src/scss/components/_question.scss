@@ -1,0 +1,34 @@
+.questionSpan {
+	color: hsl(215, 18%, 13%);
+	// width: 50%;
+	font-size: 20px;
+	text-align: justify;
+	margin-top: 10px;
+	font-weight: 600;
+}
+.rectBG {
+	height: 70%;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.containerTwo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.imgceter {
+	position: absolute;
+	display: block;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 80%;
+}
+.imgceter1 {
+	position: absolute;
+	display: block;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 45%;
+}

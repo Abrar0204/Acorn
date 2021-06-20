@@ -1,0 +1,26 @@
+.centertextContainer {
+	width: 70px;
+	height: 70px;
+	// background-color: beige;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -54%);
+}
+.centerText {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #1c2128;
+	transform: translate(-50%, -50%);
+}
+.optionAnswer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80%;
+	font-size: 20px;
+	color: #fff;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+}

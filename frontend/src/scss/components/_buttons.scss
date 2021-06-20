@@ -1,0 +1,29 @@
+.button {
+	outline: none;
+	border: none;
+	&:hover {
+		cursor: pointer;
+	}
+	&.play {
+		z-index: 5;
+		background-color: $darkColor;
+		border-radius: 50%;
+		height: 5rem;
+		width: 5rem;
+		svg {
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-40%, -50%);
+		}
+	}
+	&.start {
+		background-color: $darkColor;
+		color: white;
+		font-family: "Poppins", sans-serif;
+		padding: 1.5rem 3.5rem;
+		font-size: 2rem;
+		align-self: flex-end;
+		border-radius: 1000px;
+	}
+}

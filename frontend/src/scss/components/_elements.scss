@@ -1,0 +1,61 @@
+.elements {
+	height: 100vh;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&-container {
+		display: grid;
+		grid-template-columns: repeat(18, 7.5rem);
+		grid-template-rows: repeat(9, 7.5rem);
+		gap: 0.5rem;
+		grid-template-areas:
+			"H . . . . . . . . . . . . . . . . He"
+			"Li Be . . . . . . . . . . B C N O F Ne"
+			"Na Mg . . . . . . . . . . Al Si P S Cl Ar"
+			"K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr"
+			"Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe"
+			"Cs Ba Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn"
+			"Fr Ra Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og"
+			". . La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb . ."
+			". . Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No . .";
+
+		.s {
+			grid-area: "s";
+			color: #f78d1e;
+			border-color: #f78d1e;
+		}
+		.p {
+			grid-area: "p";
+			color: #009fb7;
+			border-color: #009fb7;
+		}
+		.f {
+			grid-area: "f";
+			color: #00d1ff;
+			border-color: #00d1ff;
+		}
+		.d {
+			grid-area: "d";
+			color: #6e76ff;
+			border-color: #6e76ff;
+		}
+		.element {
+			background-color: $darkColor;
+			border: 6px solid;
+			padding: 0.5rem;
+			h1 {
+				font-size: 2.2rem;
+			}
+			p {
+				font-size: 0.8rem;
+				letter-spacing: 0.05rem;
+			}
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}

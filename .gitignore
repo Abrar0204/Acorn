@@ -1,6 +1,4 @@
 backend/serviceKey
+
 .env
 node_modules
-
-frontend
-backend/data

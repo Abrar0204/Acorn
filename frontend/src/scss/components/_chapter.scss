@@ -1,0 +1,119 @@
+.chapter {
+	height: 100vh;
+	width: 100%;
+	padding: 10rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	&-title {
+		font-size: 5rem;
+		&.md {
+			font-size: 4rem;
+			margin-bottom: 2rem;
+		}
+	}
+	&-description {
+		font-size: 3rem;
+		margin-bottom: 3rem;
+	}
+	.question-indicator-container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		& > * {
+			margin-right: 1rem;
+		}
+	}
+
+	.question-indicator {
+		height: 4rem;
+		width: 4rem;
+		background-color: $darkColor;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		font-weight: 500;
+		&.correct {
+			background-color: #276749;
+		}
+		&.incorrect {
+			background-color: #c53030;
+		}
+	}
+}
+
+.report {
+	padding: 2rem 7rem;
+	h2 {
+		font-size: 3rem;
+		margin: 1rem 0rem;
+	}
+	& > div {
+		margin: 3rem 5rem;
+	}
+	.piechart-container {
+		height: 30rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		svg {
+			width: 40rem;
+		}
+	}
+	.label-container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		div {
+			display: flex;
+			align-items: center;
+			margin: 0.2rem 0rem;
+			.color-box {
+				width: 2rem;
+				height: 2rem;
+				margin-right: 1rem;
+				background-color: #276749;
+				&.incorrect {
+					background-color: #c53030;
+				}
+			}
+		}
+	}
+	.questions-list {
+		padding: 2rem;
+
+		&-item {
+			backdrop-filter: blur(2px);
+			background-color: rgba($primaryColor, 0.15);
+			display: flex;
+			margin: 2.5rem 0rem;
+			padding: 2rem 1rem;
+			border: 1px solid $primaryColor;
+			border-radius: 5px;
+
+			.correctness {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0rem 2rem;
+			}
+			.options {
+				padding: 1rem;
+				.option {
+					display: flex;
+					align-items: center;
+					padding: 0.5rem 0rem;
+					& > * {
+						margin-right: 1rem;
+					}
+				}
+			}
+		}
+	}
+}
