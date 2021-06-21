@@ -19,22 +19,7 @@
 		align-items: center;
 		justify-content: center;
 	}
-	.imgceter {
-		position: absolute;
-		display: block;
-		top: 60%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		height: 80%;
-	}
-	.imgceter1 {
-		position: absolute;
-		display: block;
-		top: 55%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		height: 45%;
-	}
+
 	.timer-progress {
 		display: flex;
 		flex-direction: column;
@@ -69,4 +54,20 @@
 			}
 		}
 	}
+}
+.imgceter {
+	position: absolute;
+	display: block;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 60%;
+}
+.imgceter1 {
+	position: absolute;
+	display: block;
+	top: 58%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 30%;
 }

@@ -4,6 +4,9 @@ import Timer from "./Timer";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { updateAnswers } from "../redux/actions/questionsAction";
+import {default as rectbg} from '../res/svg/rect_tilt.svg';
+import FireYes from '../res/svg/fire_yes.svg';
+import FireNo from '../res/svg/fire_no.svg';
 
 function Question({ match }) {
 	const questionID = parseInt(match.params.qid);
@@ -20,17 +23,23 @@ function Question({ match }) {
 	);
 	const [answers, setAnswers] = useState([]);
 	const [answerSelected, setAnswerSelected] = useState(false);
-
+	const [testOver,settestOver]=useState(false);
 	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const forwardToNextQuestion = () => {
 		if (questionID === chapterData.questions.length) {
-			dispatch(updateAnswers(chapterID, answers));
-			history.push(`/chapters/${chapterID}/report`);
-			return;
+			settestOver(true);
+			setTimeout(function() {
+				dispatch(updateAnswers(chapterID, answers));
+				history.push(`/chapters/${chapterID}/report`);
+			}, 5000);
+			// return;
 		}
-		history.push(`/chapters/${chapterID}/questions/${questionID + 1}`);
+		else{
+			history.push(`/chapters/${chapterID}/questions/${questionID + 1}`);
+
+		}
 	};
 
 	useEffect(() => {
@@ -132,7 +141,14 @@ function Question({ match }) {
 						</div>
 					</div>
 				</div>
+
 			)}
+			<div style={{flexGrow:4,position:"relative",minWidth:"200px"}}>
+				<div height="100%">
+					<img src={rectbg} className="imgceter"  alt="opion"/>
+					<img src={testOver?FireYes:FireNo} className="imgceter1"  alt="opion"/>
+				</div>
+			</div>
 		</div>
 	);
 }
