@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Options from "./Options";
-
+import Timer from "./Timer";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { updateAnswers } from "../redux/actions/questionsAction";
@@ -21,6 +21,18 @@ function Question({ match }) {
 	const [answers, setAnswers] = useState([]);
 	const [answerSelected, setAnswerSelected] = useState(false);
 
+	const history = useHistory();
+	const dispatch = useDispatch();
+
+	const forwardToNextQuestion = () => {
+		if (questionID === chapterData.questions.length) {
+			dispatch(updateAnswers(chapterID, answers));
+			history.push(`/chapters/${chapterID}/report`);
+			return;
+		}
+		history.push(`/chapters/${chapterID}/questions/${questionID + 1}`);
+	};
+
 	useEffect(() => {
 		setAnswerSelected(false);
 		setOptions(
@@ -29,10 +41,7 @@ function Question({ match }) {
 				state: "unselected",
 			}))
 		);
-	}, [questionData]);
-
-	const history = useHistory();
-	const dispatch = useDispatch();
+	}, [questionData, questionID]);
 
 	const answerHandler = (answerIdx, answer) => {
 		setAnswerSelected(true);
@@ -43,14 +52,7 @@ function Question({ match }) {
 					index === answerIdx ? { ...option, state } : option
 				)
 			);
-		const forwardToNextQuestion = () => {
-			if (questionID === chapterData.questions.length) {
-				dispatch(updateAnswers(chapterID, answers));
-				history.push(`/chapters/${chapterID}/report`);
-				return;
-			}
-			history.push(`/chapters/${chapterID}/questions/${questionID + 1}`);
-		};
+
 		const showCorrectOrWrongAnswer = () => {
 			if (answer === questionData.answer) {
 				updateOptions("correct");
@@ -88,9 +90,10 @@ function Question({ match }) {
 						marginLeft: "80px",
 						flexBasis: "0",
 					}}
+					className="question-page"
 				>
 					<h1 style={{ fontSize: "40px", marginLeft: "-30px" }}>
-						Act {questionID}
+						Act {questionID} / {chapterData.questions.length}
 					</h1>
 					<div className="questionSpan">
 						<span>{questionData.description}</span>
@@ -109,6 +112,24 @@ function Question({ match }) {
 								answerSelected={answerSelected}
 							/>
 						))}
+					</div>
+					<div className="timer-progress">
+						<Timer
+							forwardToNextQuestion={forwardToNextQuestion}
+							timeLimit={10}
+						/>
+						<div className="progress-bar-container">
+							<div
+								className="progress-bar"
+								style={{
+									width: `${
+										(questionID /
+											chapterData.questions.length) *
+										100
+									}%`,
+								}}
+							/>
+						</div>
 					</div>
 				</div>
 			)}

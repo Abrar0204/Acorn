@@ -61,7 +61,7 @@ function Options({
 						d="M3.53554 50L50 3.53554L96.4645 50L50 96.4645L3.53554 50Z"
 						fill="#F5F5F5"
 						stroke="#1C2128"
-						stroke-width="5"
+						strokeWidth="5"
 					/>
 				</svg>
 

@@ -27,15 +27,19 @@
 	}
 
 	.question-indicator {
-		height: 4rem;
-		width: 4rem;
-		background-color: $darkColor;
-		border-radius: 50%;
+		height: 5rem;
+		width: 5rem;
+
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		color: white;
 		font-weight: 500;
+
+		background-color: $darkColor;
+		color: $lightColor;
+		clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
 		&.correct {
 			background-color: #276749;
 		}
