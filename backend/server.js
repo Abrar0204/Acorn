@@ -1,34 +1,18 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-
 const dotenv = require("dotenv");
-
 const cors = require("cors");
 
 dotenv.config();
 
+const app = express();
+
 //Routes
 const questionRoutes = require("./routes/questionsRoutes");
 const elementsRoutes = require("./routes/elementRoutes");
-const corsOption = {
-	origin: "https://acorn-game.netlify.app",
-	originSuccessStatus: 200,
-};
-
-const env = process.env.NODE_ENV || "development";
-
-const app = express();
 
 app.use(cors());
 
-// if (env === "development") {
-// 	app.use(cors());
-// }
-// else {
-// 	app.use(cors(corsOption));
-// }
-
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get("/", (req, res) => res.send("Welcome To Acorn"));
 
